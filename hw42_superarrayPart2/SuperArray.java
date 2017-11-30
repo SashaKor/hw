@@ -1,7 +1,8 @@
-// Clyde "Thluffy" Sinclair
-// APCS1 pd0
+//Team Korilla, #22
+//Aleksandra Koroza; Max Millar
+// APCS1 pd8
 // HW42 -- expanding SuperArray functionality, encapsulation
-// 2017-11-29w
+// 2017-11-29
 
 /***************************
  * class SuperArray version 2.0
@@ -81,6 +82,7 @@ public class SuperArray
 
 
   //inserts an item at index
+  //should size be manipulated here?
   public void add( int index, int newVal )
   {
       set(index, newVal);
