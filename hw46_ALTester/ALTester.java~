@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+
+public class ALTester{
+
+    ArrayList<Comparable> aList;
+
+    //constructor populating with 23 Integers 
+    public ALTester(){
+        aList = new ArrayList<Comparable>();
+	
+    }
+
+    //randomly populate array list
+    public void populate(){
+	for (int i=0; i<23; i++){
+	    aList.add((int)(Math.random()*23));
+	}
+}
+
+    //TOSTRING method
+    public String toString(){
+	String result="[";
+	for (Object num: aList){
+	    result+= num+", ";
+	}
+	result+="]";
+	return result;
+    }
+
+    //testing if sorted.
+    //array considered sorted if in ascending order or all same
+    public boolean sorted(){
+        for (int i=0; i<22; i++){
+	    if ((aList[i].compareTo(aList[i+1]))>0){
+		return false;}
+	}
+	return true;
+
+    }
+
+    public static void main (String[] args){
+	System.out.println("-------------------------------------");
+	//populating and printing
+	System.out.println("Testing default constructor and random populate method");
+	ALTester test = new ALTester();
+	test.populate();
+	System.out.println(test);
+	System.out.println("------------------------------------");
+	System.out.println("testing sorted");
+     
+
+    }
+
+    
+
+
+}

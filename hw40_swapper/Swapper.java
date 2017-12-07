@@ -116,9 +116,9 @@ public class Swapper{
 		int r= Keyboard.readInt();
 		
 		while (r<=1){
-		    System.out.println("Please input a value greater than 1");
-		    r= Keyboard.readInt(); 
-		}
+	          System.out.println("Please input a value greater than 1");
+		  r= Keyboard.readInt(); 
+		    }
 		    
 		System.out.println("Number of columns (a value > 1):");
 		int c= Keyboard.readInt();

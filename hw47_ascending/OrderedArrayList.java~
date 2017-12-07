@@ -1,0 +1,30 @@
+/*
+Aleksandra Koroza
+APCS1 pd 8
+HW 47 ascending
+2017-12-5
+ */
+
+
+import java.util.ArrayList;
+
+//Implement class OrderedArrayList,
+//a wrapper class for ArrayList maintaining the invariant that its elements are sorted.
+public class OrderedArrayList{
+
+    //ArrayList's single parameter add method does not ensure elements remain sorted
+    public void add(OrderedArrayList<Comparable> obj){
+	if (size()==0)
+	    {set(0,obj);}
+
+	for (int i =0; i<size()-1 ; i++){
+	    if ()
+	}
+        
+    }
+
+    public static void main(String[] args){
+	
+
+    }
+}
