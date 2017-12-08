@@ -1,11 +1,5 @@
 /********************************
- Aleksandra Koroza
-APCS1 pd8
-HW #47:_ascending
-2017-12-5
-
-
-* class OrderedArrayList
+ * class OrderedArrayList
  * wrapper class for ArrayList.
  * Imposes the restriction that stored items 
  * must remain sorted in ascending order
@@ -16,77 +10,90 @@ import java.util.ArrayList;
 
 public class OrderedArrayList
 {
-    // instance of class ArrayList, holding objects of type Comparable 
-    // (ie, instances of a class that implements interface Comparable)
-    
-    private ArrayList<Comparable> _data;
+  // instance of class ArrayList, holding objects of type Comparable 
+  // (ie, instances of a class that implements interface Comparable)
+  private ArrayList<Comparable> _data;
 
 
   // default constructor initializes instance variable _data
   public OrderedArrayList()
   {
-      _data = new ArrayList<Comparable>();
-
+    _data = new ArrayList<Comparable>();    
   }
 
 
   public String toString()
   {
-      String result= "[";
-      for (Comparable obj: _data){
-	  result+=obj +", ";
-      }
-      result+="]";
-    return result; //placeholder
+    return _data.toString(); 
   }
 
 
-    public Comparable remove( int index )
-    {	
-	return _data.remove(index);
-    }
+  public Comparable remove( int index )
+  {	
+    return _data.remove(index); 
+  }
 
 
   public int size()
   { 
-      return _data.size();
+    return _data.size();
   }
 
     
   public Comparable get( int index )
   { 
-      return _data.get(index);
+    return _data.get(index); 
   }
 
 
-  public void add(Comparable newVal)
-  {
-      if (_data.size()==0) {
-	  _data.add(newVal);
-      } else {
-	  for (int i=0; i<_data.size(); i++){
-	      Comparable val=_data.get(i);
-	      if (newVal.compareTo(val)<=0){
-		  _data.add(i, newVal);
-		  break;
-	      }
-	 
-	  }
-      }
-
+  /***
+   * add takes as input any comparable object 
+   * (i.e., any object of a class implementing interface Comparable)
+   * inserts newVal at the appropriate index
+   * maintains ascending order of elements
+   * uses a linear search to find appropriate index
+   ***/
+  public void add( Comparable newVal )
+  { 
+    for( int p = 0; p < _data.size(); p++ ) {
+	    if ( newVal.compareTo( _data.get(p) ) < 0 ) { 
+        //newVal < oal[p]
+        _data.add( p, newVal );
+        return; 
+	    }
+    }
+    _data.add( newVal ); //newVal > every item in oal, so add to end 
   }
+    
+    public void addBin(Comparable newVal){
+
+        int top= _data.size();
+	int bot= 0;
+	int mid= (top+bot)/2;
+
+	while ((top-bot)>1){
+	    if (newVal.compareTo(_data.get(mid)) < 0){
+		top =mid;	
+	    }
+	    else{
+		bot= mid;
+	    }
+	    mid= (top+bot)/2;
+	}
+	_data.add(mid+1, newVal);
 
 
+    }
 
-  // main method solely for testing purposes
+    
+    // main method solely for testing purposes
   public static void main( String[] args )
   {
-    
     OrderedArrayList Franz = new OrderedArrayList();
 
     // testing linear search
     for( int i = 0; i < 15; i++ )
-      Franz.add((int)( 50 * Math.random() ) );
+      Franz.add( (int)( 50 * Math.random() ) );
     System.out.println( Franz );
 
     //check for sorted-ness
@@ -98,7 +105,14 @@ public class OrderedArrayList
         break;
       }
     }
-      
+    Franz.addBin(5);
+    System.out.println(Franz);
+    Franz.addBin(1);
+    System.out.println(Franz);
+    
+    
+    /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
 }//end class OrderedArrayList
