@@ -1,3 +1,8 @@
+//Aleksandra Koroza, Kevin Wang; (Team GetBackToUs)
+//APCS1 pd8
+//HW 53
+//2017-12-13
+
 import java.util.ArrayList;
 
 public class SortTester {
