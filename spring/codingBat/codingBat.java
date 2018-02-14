@@ -14,6 +14,9 @@ public class codingBat{
 
     public static void main(String[] args){
 	System.out.println(bunnyEars(2));
+	System.out.println(bunnyEars(0));
+	System.out.println(bunnyEars(1));
+	System.out.println(bunnyEars(3));
     }
 
 }
