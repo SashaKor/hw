@@ -9,10 +9,11 @@ public class codingBat{
 	else{
 	    return 3+ bunnyEars(n-1);
 	}
+       
     }
 
     public static void main(String[] args){
-
+	System.out.println(bunnyEars(2));
     }
 
 }
