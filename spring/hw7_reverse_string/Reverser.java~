@@ -1,0 +1,30 @@
+/*
+Aleksandra Koroza
+APCS2 pd2
+HW07 -- A Man, A Plan, A Canal: Panama!
+2018-02-13
+*/
+
+public class Reverser{
+
+    /*reverse a String...
+e.g., "stressed"  ->  "desserts"
+in
+a) O(n) time
+b) O(log2n) time
+     */
+
+    //a) O(n) time
+
+    public static String lineRev(String str){
+
+    }
+
+
+
+    public static void main (String[] args){
+
+
+    }
+
+}
