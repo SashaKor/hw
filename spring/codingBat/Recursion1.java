@@ -48,9 +48,8 @@ public class Recursion1{
       fibonacci(2) → 1
     */
     public static int fibonacci(int n) {
-	if (n==0){return 0;}
-	else if (n==1){return 1;}
-	else {return n + (n-1);}
+	if (n<=1){return n;}
+	return fibonacci(n-2)+fibonacci(n-1);
     }
     
 
@@ -273,15 +272,16 @@ changeXY("xhixhix") → "yhiyhiy"
        array6([6], 0) → true
     */
     public static boolean array6(int[] nums, int index) {
-	if (index==nums.length-1){
-	    if (nums[index]== 6){return true;}
-	    else {return false;}
-	}
-
-	else {
-	    if (nums[index]==6){return true;}
-	    else {return array6(nums, index+1);}
-	}
+    	if(nums.length==0) {return false;}
+    	else if (index>=nums.length-1){
+  	    if (nums[index]== 6){return true;}
+  	    else {return false;}
+  	}
+  
+  	else {
+  	    if (nums[index]==6){return true;}
+  	    else {return array6(nums, index+1);}
+  	}
     }
 
     /* 16
