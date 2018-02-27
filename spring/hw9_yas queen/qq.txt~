@@ -1,0 +1,34 @@
+Aleksandra Koroza
+APCS2 pd2
+HW #09: Yaaasss Queens
+2018-02-26
+
+Assignment:
+
+Without succumbing to the temptation of an Internet search,
+ explain as clearly as possible,
+ in a plaintext file,
+ how you know whether each case is solvable -- and if so, how many solutions it has.
+
+Note:
+1) "solvable" means that there is a configuration of the chess board with the same number of queens as size of board. (ie. 2 for 2x2)
+2) Queen moves any number of steps forward, backwards, and diagonal. Thus, two queens cannot occupy the same row and column (+diagonal).
+
+2x2
+Verdict: Not solvable. (Maximum=1 queen)
+Reasoning/Proof: Once one queen is placed, there are no spots available to place a second one.
+
+3x3
+Verdict: Not solvable. (Maximum=2 queens)
+Reasoning/Proof: I have identified three different ways of placement for the first queen to test all the possible configurations:
+key: - (available for placement of another queen)
+a) placing in the middle
+   ---
+   ---
+   ---
+
+4x4
+5x5
+6x6
+7x7
+8x8
