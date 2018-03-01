@@ -30,7 +30,7 @@ public class QueenBoard
    */
     public boolean solve()
     {
-	addQueen(0,0);
+	addQueen(1,0);
 	return solveH(1);
 
     }
@@ -165,6 +165,11 @@ public class QueenBoard
      a.solve();
      System.out.println(a);
      a.printSolution();
+
+     QueenBoard z = new QueenBoard(4);
+     z.solve();
+     System.out.println(z);
+     z.printSolution();
   }
     
 }//end class
