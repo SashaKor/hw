@@ -1,0 +1,20 @@
+Aleksandra Koroza
+APCS2 pd2
+HW #11: Get On the.Bus
+2018-02-28
+
+Problem: Express your algorithm for generating a sequence of moves a knight may make to touch each square of an n*n grid exactly once --- or to determine that this task is impossible.
+
+This task is possible and here is my algorithm:
+*Initial placement of knight does not matter*
+
+If all squares have been visited -> print the solution, finish task
+
+Else {
+     1. Choose one of the possible moves a knight can complete from the current spot. Recursively check if this move leads to a solution.
+     2. If choice in above step did not result in a solution, remove this move (ie. remove placed knights until a solution is indeed possible). Try alternative placements.
+     3.If none of the alternative placements work, return false and remove a previously added knight in the recursion.
+
+}
+
+This algorithm relies heavily on recursion and on dropping entire "branches" of possible solutions if they do not lead to success.
