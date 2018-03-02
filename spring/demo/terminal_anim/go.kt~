@@ -1,0 +1,18 @@
+Aleksandra Koroza
+APCS2 pd2 
+HW #12: __+3R|\/|1|\|4|_  1|_|_|\|3$$__
+2018-02-29
+
+	Q0: What do you make of the multiple class definitions in a single .java file?
+	I was surprised to see both class Demo and Boardasaurus defined in a single .java file. Neither of the class definitions feature the key word public, so that may be why several classes can be found. The code compiles, so this is a valid thing to do.  What is the purpose of a separate class for the driver method as opposed to the board setup/moves? Does the reason have to do with easier manipulation of code? 
+
+	Q1: How are the command line arguments processed?
+	Command line arguments are processed using try and catch exceptions. Command line arguments are used to set the size of the board, and to set a default size if none provided. They are also used to set the delay time of the board. The code accesses a specific value from the command line using args[0] or args[1]. Helper method delay also helps with try/catch. Thread.sleep() delays execution by given n ms.
+
+	Q2: What happens if no command line arguments are given?
+	If no arguments are given, default values are used to prevent crashing. Board size is set to 8 and timeDelay is given to be 500.
+	
+        Q3: What is the nature/purpose of the recursion? Is it necessary for the animation?
+        Q4: What do you expect to see when you run it?
+        Q5: How long do you expect it to run?
+        Q6: What does ANSI stand for? (You are permitted some intertubes searching here…). What is it good for?
