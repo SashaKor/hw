@@ -111,22 +111,27 @@ class MazeSolver
     delay(50); //slow it down enough to be followable
 
     //primary base case
-    if ( /* YOUR AMAZEING CODE HERE */ ) {
+    // reach exit
+    if ( ) {
 	    /* YOUR AMAZEING CODE HERE */
     }
     //other base case(s)...
+    //dead end
     else if ( /* YOUR AMAZEING CODE HERE */ ) {
 	    /* YOUR AMAZEING CODE HERE */
     }
+    //already visited
     else if ( /* YOUR AMAZEING CODE HERE */ ) {
 	    /* YOUR AMAZEING CODE HERE */
     }
+    //current path
     else if ( /* YOUR AMAZEING CODE HERE */ ) {
 	    /* YOUR AMAZEING CODE HERE */
     }
     //recursive reduction
     else {
-	    /* YOUR AMAZEING CODE HERE */
+	//return to previous position
+	//mark with a "." and return
     }
   }
 
