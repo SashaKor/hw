@@ -1,3 +1,9 @@
+//Aleksandra Koroza
+//APCS2 pd2
+//HW #15: Thinkers of the Corn, Do You Hear the People SING!
+//2018-03-06
+
+
 /***
  * SKEELTON for class 
  * MazeSolver
@@ -9,7 +15,10 @@
  * (mazefile is ASCII representation of maze, using symbols below)
  * 
  * ALGORITHM for finding exit from starting position:
- *  // write out
+ *  // smarter algo than one featured below:
+ if solved (EXIT reached)-> exit
+if off the board or otherwise off the correct path, 
+recurse through each move (up, right, down up) and update board accordingly.
  ***/
 
 //enable file I/O
@@ -111,28 +120,44 @@ class MazeSolver
     delay(50); //slow it down enough to be followable
 
     //primary base case
-    // reach exit
+    // reach exit, solved
     if (maze[x][y]== EXIT) {
-	    
+	System.exit(0);
     }
     //other base case(s)...
-    //dead end
-    //else if ( ) {
-	    
-    //}
+    //dead end needs somethign special
+    else if (maze[x][y]== WALL) {
+
+	return; 
+    }
     //already visited
-    //else if ( /* YOUR AMAZEING CODE HERE */ ) {
-	    /* YOUR AMAZEING CODE HERE */
-    //}/
+    else if ( maze[x][y]== HERO) {
+
+	return;
+    }
     ///current path
-    //else if ( /* YOUR AMAZEING CODE HERE */ ) {
-	    /* YOUR AMAZEING CODE HERE */
-	// }
+    else if (maze[x][y]== VISITED_PATH) {
+
+	return;
+    }
+
     //recursive reduction
-    //else {
+    else {
 	//return to previous position
 	//mark with a "." and return
-	//}
+
+	maze[x][y]= HERO;
+	System.out.println(this);
+	
+	solve(x-1, y);
+	solve(x, y+1);
+	solve(x+1, y);
+	solve(x, y-1);
+
+	maze[x][y]= VISITED_PATH;
+
+	System.out.println(this);// refresh screen
+    }
   }
 
   //accessor method to help with randomized drop-in location
@@ -157,9 +182,9 @@ public class Maze
 
 	    //drop hero into the maze (coords must be on path)
 	    //comment next line out when ready to randomize startpos
-	    ms.solve( 4, 3 ); 
+	    //ms.solve( 3, 1); 
 
-	    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	    // /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	    //drop our hero into maze at random location on path
 	    //the Tim Diep way:
 	    Random r = new Random();
@@ -171,7 +196,7 @@ public class Maze
 	    }
 
 	    ms.solve( startX, startY );
-	    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     } catch( Exception e ) { 
 	    System.out.println( "Error reading input file." );
 	    System.out.println( "Usage: java Maze <filename>" ); 
