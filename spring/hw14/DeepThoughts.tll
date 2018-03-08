@@ -1,0 +1,45 @@
+﻿Team Crackalicious 
+Brian Lin, Isaac Jon, Aleksandra Koroza
+APCS2 pd2 
+HW14 -- 
+2018-03-5
+
+
+Average time calculated:
+        n=5 0.038141s over 1000 executions
+          6 0.067s over 1000 executions
+  7 0.21015s over 1000 executions
+  8 0.24791s over 1000 executions
+
+
+Note: Sharp increase in time taken for execution
+
+
+Q1: From any starting position, can an open tour always be found? Explain.
+        No because if the board is less than 5 x 5, then a knight’s tour is impossible. The knight will always reach a dead end or exit out of the board if the board size is less than 5.  
+Q2: Same, but for closed tour.
+An open tour can not alway be found because no closed knight's tour is possible on a board with an odd number of squares. Each move changes the value of the knight's spot. After an odd number of moves, you can't be back at the starting square, because it would the wrong number.
+Q3: How do you explain the increase in execution time as n increases?
+        If the board size increases, more paths would need to be considered and the recursion would need to loop more times exponentially. Furthermore, since the program needs to print the board every time, the execution time increases exponentially combined with the severe increase in the possible number of paths that can be taken. 
+Q4: Thoughts on optimization? 
+        Instead of going through every single possible path, it might make more sense to break up the board into 4 sections since there are four (or more) equivalent sections on each board, and applying the results from one section to the rest. If the knight’s tour code can calculate the total number of paths possible, then it would serve as a great program for graph theory nerds. 
+
+
+================== Maze Algorithm ==================
+
+
+1. Start at the $, and move to the next available spot, on the N E S or W direction.
+
+
+2. Repeat step 1, checking the 3 spots that would not backtrack to the previous move until a dead end is reached…
+
+
+3.  Undo the last move and check the other 3 spots that would not backtrack to the move made in Step 2
+
+
+4. Repeat Steps 2 to Step 3 until $ reaches @, the exit
+
+
+
+
+===============================================
