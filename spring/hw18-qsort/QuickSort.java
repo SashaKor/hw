@@ -7,9 +7,10 @@
  * class QuickSort
  * Implements quicksort algo to sort an array of ints in place
  *
- * 1. Summary of QuickSort algorithm:
- * QSort(arr): 
-
+ * 1. Summary of QuickSort algorithm:a recursive divide and conquer algorithm. 
+ * QSort(arr): (based on my implemetation, can be optimized with median or random choosing)
+1) Choose the rightmost element in the array and partition. (step results in subarrays with all values smaller than pivot to the left and all values bigger to the right)
+2) Recursively call step 1 on each resulting subarray until no more comparisons are possible. 
 
 Notes from Mr.Brown:
 
@@ -21,10 +22,13 @@ algo qsort(arr,left,right)
 
  *
  * 2a. Worst pivot choice and associated runtime: 
- *
+ * The runtime associated with the worst case is O(n^2) since it would require comparisons for each element in the array. Thus, the worst pivot choice would be the largest or smallest value in the array (since the partition is unbalanced).
+
  * 2b. Best pivot choice and associated runtime:
+The runtime associated with the best case is O(nlogn), when the partition is as evenly balanced as possible. Thus, the ideal pivot choice would be the median value of the array (although this is not guaranteed to actually happen). Choosing from the middle region of the array could minimize the possibility of inportune partitions.
  *
  * 3. Approach to handling duplicate values in array:
+My code works as intended when given duplicate values (repeated in order). My implementation of quick sort looks at the last value when completing comparisons. I do not yet know under which cases duplicates would be an issue.
  *
  *****************************************************/
 
