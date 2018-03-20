@@ -1,0 +1,28 @@
+Aleksandra Koroza
+APCS2 pd2
+HW #21a: An Honest Tune with a Lingering Lead...
+2018-03-19
+
+Create a UML diagram for class LLNode, which specifies what a node has and can do.
+
+LLNode
+----------------------------------------------
+//value stored in current node
++ String value
+//reference to next
++ LLNode next
+---------------------------------------------
+//access and return value
++ String getCargo()
+
+//return object referenced by current node
++ LLNode getNext()
+
+//set current value of node to something else
++ String setCargo(String str)
+
+//set value of node referenced by current node
++ LLNode setNext(String str)
+
+//override toString to reflect node
++ String toString()
