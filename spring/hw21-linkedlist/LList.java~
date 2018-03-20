@@ -1,0 +1,28 @@
+/*Aleksandra Koroza
+APCS2 pd2
+HW #21c: Rockin’ Through the Night
+2018-03-19
+
+Write class LList, which uses class LLNode to implement the List interface given in class.
+*/
+public class LList implements List {
+
+{ 
+
+    //add node to list, containing input String as its data
+    public boolean add( String x ){
+
+    }
+
+    //return data in element at position i
+    public String get( int i ); 
+
+    //overwrite data in element at position i
+    public String set( int i, String x ); 
+
+    //return length of list
+    public int size(); 
+
+
+
+}

@@ -1,3 +1,9 @@
+
+/*Aleksandra Koroza
+APCS2 pd2
+HW #21b: We Got a Little Ol’ Convoy...
+2018-03-19
+*/
 /*****************************************************
  * class LLNode
  * Implements a node, for use in lists and other container classes.
@@ -7,8 +13,8 @@
 public class LLNode
 {
     //instance vars
-    public String value;
-    public LLNode next; 
+    public String value=null;
+    public LLNode next=null; 
 
     // constructor 
     public LLNode(String str){
