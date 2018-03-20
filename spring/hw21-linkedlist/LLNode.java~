@@ -7,58 +7,45 @@
 public class LLNode
 {
     //instance vars
-    public String value;
-    public LLNode next; 
+
 
     // constructor 
-    public LLNode(String str){
-	this.value= str;
-    }
+
 
     //--------------v  ACCESSORS  v--------------
     public String getCargo()
     {
-	return this.value;
     }
 
     public LLNode getNext()
     {
-	return this.next;
     }
     //--------------^  ACCESSORS  ^--------------
 
 
     //--------------v  MUTATORS  v--------------
-    public String setCargo(String str)
+    public String setCargo()
     {
-	this.value= str;
-	return toString(this);
     }
 
-    public LLNode setNext(LLNode obj)
+    public LLNode setNext()
     {
-	this.next=obj;
-        return next;
     }
     //--------------^  MUTATORS  ^--------------
 
 
     // override inherited toString
-    public static String toString(LLNode obj)
+    public String toString()
     {
-	//if (obj.value== null) {return "null";}
-	return obj.getCargo()+ "|"+ obj.next.getCargo();
+
     }
 
 
     //main method for testing
     public static void main( String[] args )
     {
-	LLNode test1= new LLNode("first");
-	LLNode test2= new LLNode("second");
-
-	test1.setNext(test2);
-	System.out.println(toString(test1));
+	//PROTIP: try creating a few nodes: traversible, connected...
+	//note anything notable as you develop and test...
 	
     }//end main
 
