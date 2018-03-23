@@ -1,3 +1,10 @@
+/*
+Aleksandra Koroza
+APCS2 pd 2
+HW #23: Give and Take
+2018-03-22
+ */
+
 /*****************************************************
  * class LList
  * Implements a linked list of LLNodes, each containing String data
