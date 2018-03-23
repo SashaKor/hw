@@ -11,9 +11,10 @@ public class DLLNode
     private DLLNode _nextNode, _prevNode; //pointers to next, prev DLLNodes
 
         // constructor -- initializes instance vars
-    public LLNode( String value, DLLNode next, DLL back ) {
+    public LLNode( String value, DLLNode next, DLL prev ) {
 	_cargo = value;
 	_nextNode = next;
+	_prevNode = prev;
     }
 
 
@@ -21,6 +22,8 @@ public class DLLNode
     public String getCargo() { return _cargo; }
 
     public LLNode getNext() { return _nextNode; }
+
+    public LLNode getPrev() { return _prevNode; }
     //--------------^  ACCESSORS  ^--------------
 
 
@@ -34,6 +37,12 @@ public class DLLNode
     public LLNode setNext( LLNode newNext ) {
 	LLNode foo = getNext();
 	_nextNode = newNext;
+	return foo;
+    }
+
+    public LLNode setPrev( LLNode newPrev ) {
+	LLNode foo = getPrev();
+	_prevNode = newPrev;
 	return foo;
     }
 
