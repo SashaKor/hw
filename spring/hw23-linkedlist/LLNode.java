@@ -1,9 +1,3 @@
-
-/*Aleksandra Koroza
-APCS2 pd2
-HW #21b: We Got a Little Ol’ Convoy...
-2018-03-19
-*/
 /*****************************************************
  * class LLNode
  * Implements a node, for use in lists and other container classes.
@@ -13,59 +7,72 @@ HW #21b: We Got a Little Ol’ Convoy...
 public class LLNode
 {
     //instance vars
-    public String value=null;
-    public LLNode next=null; 
+    private String _cargo;    //cargo may only be of type String
+    private LLNode _nextNode; //pointer to next LLNode
 
-    // constructor 
-    public LLNode(String str){
-	this.value= str;
+    // constructor -- initializes instance vars
+    public LLNode( String value, LLNode next ) {
+	_cargo = value;
+	_nextNode = next;
     }
+
 
     //--------------v  ACCESSORS  v--------------
-    public String getCargo()
-    {
-	return this.value;
-    }
+    public String getCargo() { return _cargo; }
 
-    public LLNode getNext()
-    {
-	return this.next;
-    }
+    public LLNode getNext() { return _nextNode; }
     //--------------^  ACCESSORS  ^--------------
 
 
     //--------------v  MUTATORS  v--------------
-    public String setCargo(String str)
-    {
-	this.value= str;
-	return toString(this);
+    public String setCargo( String newCargo ) {
+	String foo = getCargo();
+	_cargo = newCargo;
+	return foo;
     }
 
-    public LLNode setNext(LLNode obj)
-    {
-	this.next=obj;
-        return next;
+    public LLNode setNext( LLNode newNext ) {
+	LLNode foo = getNext();
+	_nextNode = newNext;
+	return foo;
     }
     //--------------^  MUTATORS  ^--------------
 
-
+    
     // override inherited toString
-    public static String toString(LLNode obj)
-    {
-	//if (obj.value== null) {return "null";}
-	return obj.getCargo()+ "|"+ obj.next.getCargo();
-    }
+    public String toString() { return _cargo.toString(); }
 
 
     //main method for testing
     public static void main( String[] args )
     {
-	LLNode test1= new LLNode("first");
-	LLNode test2= new LLNode("second");
 
-	test1.setNext(test2);
-	System.out.println(toString(test1));
+	//Below is an exercise in creating a linked list...
+
+	//Create a node
+	LLNode first = new LLNode( "cat", null );
+
+	//Create a new node after the first
+	first.setNext( new LLNode( "dog", null ) );
+
+	//Create a third node after the second
+	first.getNext().setNext( new LLNode( "cow", null ) );
+
+	/* A naive list traversal, has side effects.... ??
+	   while( first != null ) {
+	   System.out.println( first );
+	   first = first.getNext();
+	   }
+	*/
+
+	//Q: when head ptr moves to next node in list, what happens to the node it just left?
+
+	//...so better: ?
+	//
+	//
+	//
 	
     }//end main
 
 }//end class LLNode
+
