@@ -13,7 +13,12 @@ public class ItrWorkAL
     //returns a boolean to indicate whether key is present in L
     public static boolean foundA( Integer key, List<Integer> L ) 
     { 
-	/*** YOUR IMPLEMENTATION HERE ***/
+        for (Integer x: L){
+	    if (x.equals(key)){
+		return true;
+	    }
+	}
+	return false;
     }
 
     //explicitly using an iterator
@@ -57,7 +62,7 @@ public class ItrWorkAL
 
 	// TASK: write code to print the contents of ArrayList L...
 
-	/*~~~~~~~~~~~~~~~m~o~v~e~~m~e~~d~o~w~n~~~~~~~~~~~~~~
+        
 	// a) using a FOREACH loop
 
 
@@ -67,7 +72,7 @@ public class ItrWorkAL
 	System.out.println("\nTesting foundA...");
 	System.out.println("9 in L? -> " + foundA(9,L) );
 	System.out.println("13 in L? -> " + foundA(13,L) );
-
+	/*~~~~~~~~~~~~~~~m~o~v~e~~m~e~~d~o~w~n~~~~~~~~~~~~~~
 	System.out.println("\nTesting foundB...");
 	System.out.println("9 in L? -> " + foundB(9,L) );
 	System.out.println("13 in L? -> " + foundB(13,L) );
