@@ -35,12 +35,13 @@ public class LList implements List //your List interface must be in same dir
     public boolean add( String newVal )
     {
 	DLLNode newNode = new DLLNode(newVal);
+
 	newNode.setNext(_head);
 	newNode.setPrev(null);
 	if (_head!=null){
 	    _head.setPrev(newNode);}
 	if(_size==0){
-	    _tail=newNode;}
+	  _tail=newNode;}
 	_head=newNode;
 	_size++;
 	
@@ -54,14 +55,26 @@ public class LList implements List //your List interface must be in same dir
 	    throw new IndexOutOfBoundsException();
 
     String retVal;
-    DLLNode tmp = _head; //create alias to head
+
 
     //walk to desired node
-    for( int i=0; i < index; i++ )
+    if (index < _size/2){
+	DLLNode tmp = _head; //create alias to head
+	for( int i=0; i < index; i++ )
 	    tmp = tmp.getNext();
+    
+	//check target node's cargo hold
+	retVal = tmp.getCargo();}
 
-    //check target node's cargo hold
-    retVal = tmp.getCargo();
+    else {
+	DLLNode tmp = _tail; //create alias to tail
+
+	for( int i=_size-1; i > index-1; i-- )
+	    tmp = tmp.getPrev();
+    
+	//check target node's cargo hold
+	retVal = tmp.getCargo();
+    }
     return retVal;
   }
 
@@ -71,18 +84,35 @@ public class LList implements List //your List interface must be in same dir
 
     if ( index < 0 || index >= size() )
 	    throw new IndexOutOfBoundsException();
-
+    String oldVal="";
+    if (index < _size/2){
     DLLNode tmp = _head; //create alias to head
 
     //walk to desired node
     for( int i=0; i < index; i++ )
-	    tmp = tmp.getNext();
+	tmp = tmp.getNext();
 
     //store target node's cargo
-    String oldVal = tmp.getCargo();
+    oldVal = tmp.getCargo();
 
     //modify target node's cargo
-    tmp.setCargo( newVal );
+    tmp.setCargo( newVal );}
+
+    else {
+	DLLNode tmp = _tail; //create alias to tail
+
+	//walk to desired node
+	for( int i=_size-1; i > index-1; i-- )
+	    tmp = tmp.getPrev();
+
+	//store target node's cargo
+        oldVal = tmp.getCargo();
+
+	//modify target node's cargo
+	tmp.setCargo( newVal );
+    }
+
+    
 
     return oldVal;
   }
@@ -131,7 +161,7 @@ public class LList implements List //your List interface must be in same dir
 	    DLLNode tmp = _tail; //create alias to tail
 
 	    //walk to node before desired node
-	    for( int i=_size-1; i <index-1; i-- )
+	    for( int i=_size-1; i > index-1; i-- )
 		tmp = tmp.getPrev();
 
 	    //insert new node
@@ -245,9 +275,9 @@ public class LList implements List //your List interface must be in same dir
     System.out.println( "...after add(0,whut): " );
     System.out.println( james );
 
-    //james.add(4,"phat");
-    //System.out.println( "...after add(4,phat): " );
-    //System.out.println( james );
+    james.add(4,"phat");
+    System.out.println( "...after add(4,phat): " );
+    System.out.println( james );
 
     System.out.println( "...after remove last: " 
                         + james.remove( james._size-1) );

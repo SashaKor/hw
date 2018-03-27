@@ -1,4 +1,7 @@
 /*****************************************************
+
+
+
  * class ItrWork -- skeleton
  * Allows for familiarization with iterators
  *****************************************************/
@@ -67,7 +70,13 @@ public class ItrWorkAL
     //modifies L s.t. it contains no evens
     public static void removeEvens( List<Integer> L ) 
     { 
-	/*** YOUR IMPLEMENTATION HERE ***/
+	 Iterator it= L.iterator();
+	 while (it.hasNext()){
+	      Integer i= (Integer) it.next();
+	      if (i%2==0){
+		  it.remove();
+	      }
+	 }
     }
 
 
@@ -84,11 +93,21 @@ public class ItrWorkAL
 
         
 	// a) using a FOREACH loop
+	for(Integer x: L){
+	    System.out.print(x + " ");
+	}
 
 
+	System.out.println();
+	
 	// b) explicitly using an iterator
 
-
+	Iterator it = L.iterator();
+	while (it.hasNext()){
+	    Integer i = (Integer) it.next();
+	    System.out.print(i + " ");
+	}
+	
 	System.out.println("\nTesting foundA...");
 	System.out.println("9 in L? -> " + foundA(9,L) );
 	System.out.println("13 in L? -> " + foundA(13,L) );
@@ -104,10 +123,11 @@ public class ItrWorkAL
 	System.out.println("\nTesting oddsB...");
 	List<Integer> B = oddsB(L);
 	for( int n : B ) System.out.println(n);
-		/*~~~~~~~~~~~~~~~m~o~v~e~~m~e~~d~o~w~n~~~~~~~~~~~~~~
+
 	System.out.println("\nTesting removeEvens...");
 	removeEvens(L);
 	for( int n : L ) System.out.println(n);
+		/*~~~~~~~~~~~~~~~m~o~v~e~~m~e~~d~o~w~n~~~~~~~~~~~~~~
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
     }//end main
