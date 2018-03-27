@@ -1,6 +1,8 @@
 /*****************************************************
-
-
+Aleksandra Koroza, Angela Tom, power duo
+APCS2 pd2
+HW #26: DeIteratour
+2018-03-26
 
  * class ItrWork -- skeleton
  * Allows for familiarization with iterators
