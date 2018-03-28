@@ -9,7 +9,8 @@
 
 import java.util.Iterator;
 
-public interface List<T> extends Iterable<T> 
+public interface List<T>
+//extends Iterable<T> 
 { 
     //add element T to end of list
     //always return true

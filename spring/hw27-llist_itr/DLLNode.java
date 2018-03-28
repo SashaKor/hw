@@ -15,8 +15,14 @@ public class DLLNode<T> {
 	_cargo = value;
 	_nextNode = next;
 	_prevNode = prev;
-    }
+}
 
+    public DLLNode( T value ) 
+    {
+	_cargo = value;
+	_nextNode = null;
+	_prevNode = null;
+    }
 
     //--------------v  ACCESSORS  v--------------
     public T getCargo() { return _cargo; }
