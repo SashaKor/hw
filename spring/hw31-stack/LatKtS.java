@@ -26,11 +26,9 @@ public class LatKtS
       String ret ="";
       
       //first push to stack using for loop
-      for (int i=0; i<s.length()-1; i++){
+      for (int i=0; i<s.length(); i++){
 	  stack.push(s.substring(i,i+1));
       }
-
-      stack.push(s.substring(s.length()-1));
 
       //now that we have a stack that looks kinda like this -->
       // (eg. "latke" would be [l a t k e] on the stack)
@@ -53,24 +51,70 @@ public class LatKtS
    *                allMatched( "" )            -> true
    **********************************************************/
   public static boolean allMatched( String s )
-  {
-      return true;
-  }//end allMatched()
+    {
+	//algo: push to stack, one a time and check if the parenthesis of previous
+	//corresponds to current. if so, pop twice
+	Latkes stack = new Latkes(s.length());
+	boolean ans = false;
+
+	//used for comparison; possible parenz = () {} []
+	String prev ="";
+ 
+	//push to stack using for loop
+	for (int i=0; i< s.length(); i++){
+	    if (!(stack.isEmpty())){
+	    prev= stack.peek();
+	    stack.push(s.substring(i,i+1));}
+
+	    else {
+	    stack.push(s.substring(i,i+1));
+	    }
+
+	    if (stack.peek().equals(")") && prev.equals("(")){
+		stack.pop();
+		stack.pop();
+		//they goot
+	    }
+
+	    if (stack.peek().equals("}") && prev.equals("{")){
+		stack.pop();
+		stack.pop();
+		//they goot
+	    }
+	    if (stack.peek().equals("]") && prev.equals("[")){
+		stack.pop();
+		stack.pop();
+		//they goot
+	    }
+		    
+	}
+	if (stack.isEmpty()){
+	    ans=true;
+	}
+
+	return ans;
+
+	
+    }//end allMatched()
 
 
-  //main method to test
-  public static void main( String[] args )
+    //main method to test
+    public static void main( String[] args )
   {
       //gr8 m8
     System.out.println(flip("stressed"));
     System.out.println(flip("elloh"));
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+    
     System.out.println(allMatched( "({}[()])" )); //true
     System.out.println(allMatched( "([)]" ) ); //false
     System.out.println(allMatched( "(){([])}" ) ); //true
     System.out.println(allMatched( "](){([])}" ) ); //false
     System.out.println(allMatched( "(){([])}(" ) ); //false
     System.out.println(allMatched( "()[[]]{{{{((([])))}}}}" ) ); //true
+    //foley's tests
+    System.out.println(allMatched( "()}" ) ); // false
+    System.out.println(allMatched( "(){" ) ); //false
+    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
   }
 

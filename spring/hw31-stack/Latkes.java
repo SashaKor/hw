@@ -20,6 +20,10 @@ public class Latkes
     //Looks at the object at the top of this stack without removing it from the stack.
     public String peek()
     {
+	if (_stackSize==0){
+	    return "null";
+	}
+	
 	return _stack[_stackSize-1];
     }
 	
