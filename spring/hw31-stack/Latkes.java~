@@ -16,13 +16,7 @@ public class Latkes
     _stack = new String[size];
     _stackSize = 0;
   }
-    //	peek()
-    //Looks at the object at the top of this stack without removing it from the stack.
-    public String peek()
-    {
-	return _stack[_stackSize-1];
-    }
-	
+
 
   //means of insertion
   public void push( String s )
@@ -71,10 +65,6 @@ public class Latkes
     Latkes tastyStack = new Latkes(10);
 
     tastyStack.push("aoo");
-
-    //test peek
-    System.out.println(tastyStack.peek());
-
     tastyStack.push("boo");
     tastyStack.push("coo");
     tastyStack.push("doo");
