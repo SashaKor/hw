@@ -1,0 +1,9 @@
+/*
+Aleksandra Koroza
+APCS2 Pd2
+HW #32: Leon Leonwood Stack    
+2018-04-11
+ */
+/*
+Write class ALStack, which will implement a stack using an ArrayList as its underlying container.
+ */

@@ -4,18 +4,18 @@
  * Allows for generic typing.
  *****************************************************/
 
-public interface Stack<PANCAKE> 
+public interface Stack<T> 
 {
     //Return true if this stack is empty, otherwise false.
     public boolean isEmpty();
 
     //Return top element of stack without popping it.
-    public PANCAKE peek();
+    public T peek();
 
     //Pop and return top element of stack.
-    public PANCAKE pop();
+    public T pop();
 
     //Push an element onto top of this stack.
-    public void	push( PANCAKE x );
+    public void	push( T x );
 
 }//end interface
