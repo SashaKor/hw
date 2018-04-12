@@ -19,20 +19,22 @@ public class ALStack<T> implements Stack<T>{
 	al= new ArrayList<T>();
     }
 
-        //0(1) since only checking size
+    //O(1) since only checking size
     public boolean isEmpty(){
 	return al.isEmpty();
     }
 
-    //0(1) 
+    //O(1) 
     public T peek(){
 	return al.get(al.size()-1); 
     }
 
+    //O(1)
     public T pop(){
 	return al.remove(al.size()-1);
     }
 
+    //O(1)
     public void push(T x){
 	al.add(x);
     }
