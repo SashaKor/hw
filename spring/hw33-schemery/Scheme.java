@@ -36,31 +36,31 @@ public class Scheme
    ******************************************************/
   public static String evaluate( String expr ) 
   {
-      String result="1";
+      String result="0";
       // one stack for storing numbers and parenthesis, another for seeing current operand
       LLStack<String> input = new LLStack<String>();
       LLStack<String> opr = new LLStack<String>();
       //splitting input string into usable stuffs
       String[] exprArr = expr.split("\\s+");
-      int op =0;
 
       input.push(exprArr[exprArr.length-1]);
+
       for (int i= exprArr.length-2; i>=0 ; i--){
 	  String curr= exprArr[i];
 
 	  if (curr.equals("+")){
 	      opr.push(curr);
-	      op= 1;
+	      result= Integer.toString(Integer.parseInt(result) + Integer.parseInt(unload(1,input)));
 	  }
 
 	  if (curr.equals("-")){
 	      opr.push(curr);
-	      op= 2;
+	      result= Integer.toString(Integer.parseInt(result) + Integer.parseInt(unload(2,input)));
 	  }
 
 	  if (curr.equals("*")){
 	      opr.push(curr);
-	      op= 3;
+	      result= Integer.toString(Integer.parseInt(result) + Integer.parseInt(unload(3,input)));
 	  }
 	      
 
@@ -69,8 +69,8 @@ public class Scheme
 	  }
 
 	  if (curr.equals("(")){
-	      input.pop();
-	      result= Integer.toString(Integer.parseInt(result) + Integer.parseInt(unload(op,input)));
+	      //input.pop();
+	      //result= Integer.toString(Integer.parseInt(result) + Integer.parseInt(unload(op,input)));
 	      opr.pop();
 
 	      while (! input.peek().equals(")")){
@@ -121,7 +121,7 @@ public class Scheme
 	  }
 
 	  //multiplication
-	  if (op==2){
+	  if (op==3){
 	      if (firstPop){
 		  ans= curr;
 		  firstPop=false;
@@ -154,7 +154,7 @@ public class Scheme
   {
 
     
-      String zoo1 = "( + 4 3 )";
+      String zoo1 = "( + 4 3 2 5 )";
       System.out.println(zoo1);
       System.out.println("zoo1 eval'd: " + evaluate(zoo1) );
       //...7
