@@ -5,12 +5,12 @@
  ******************************************************/
 
 
-public interface Queue<T> {
+public interface Queue<Quasar> {
 
     //~~~~~~~~~~~~~~~~~~begin AP subset~~~~~~~~~~~~~~~~~~
     //means of removing an element from collection:
     //Dequeues and returns the first element of the queue.
-    public T dequeue();
+    public Quasar dequeue();
 
     //means of adding an element to collection:
     //Enqueue an element onto the back of this queue.
