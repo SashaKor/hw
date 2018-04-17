@@ -1,7 +1,7 @@
 //Byte-Size -- Aleksandra Koroza  Raunak Chowdhury
 //APCS2 pd2
-//HW35 --  text
-//2018- ##- ##
+//HW35 -- ...Nor Do Aussies
+//2018- 04- 16
 
 import java.util.ArrayList;
 
