@@ -1,0 +1,21 @@
+Aleksandra Koroza
+APCS2 pd2
+HW #41: A Tree Grows in 251  or BK
+2018-04-29
+
+Procedure for reconstructing binary tree, given traversal.
+
+Note: In order to create a unique binary tree, an in-order listing is required alongside either the pre-order or post-order listings. The algorithm I've listed assumes an in-order listing has been given.
+
+Given: in-order and pre-order
+
+1) Set the first value of pre-order list as root.
+2) Take the next value in the pre-order listing. If it is to the right of the root in the in-order listing, set it as a right child. Set as left child if it is to the left. 
+3) Repeat Steps 1 and 2 until no more values in pre-order list, taking the root to be the next pre-order value each time.
+
+Given: in-order and post-order
+
+1) Set the last value of post-order list as root.
+2) Take the preceding value in the post-order listing. If it is to the right of the root in the in-order listing, set it as a right child. Set as left child if it is to the left. 
+3) Repeat Steps 1 and 2 until no more values in post-order list, taking the root to be the previous post-order value each time.
+
