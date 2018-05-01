@@ -18,9 +18,10 @@ public class TreeNode
      * Construct a tree node with specified value, 
      * with null left and right subtrees.
      *****************************************************/
-    TreeNode( int initValue )
+    public TreeNode( int initValue )
     {
 	_cargo= initValue;
+	
     }
           
 
@@ -28,7 +29,7 @@ public class TreeNode
      * overloaded constructor
      * Construct tree node w specified value, left, and right subtrees.
      *****************************************************/
-    TreeNode( int initValue, TreeNode initLeft, TreeNode initRight ) 
+    public TreeNode( int initValue, TreeNode initLeft, TreeNode initRight ) 
     {
 	_cargo= initValue;
 	_lt= initLeft;
@@ -40,7 +41,7 @@ public class TreeNode
     /*****************************************************
      * Returns the left subtree of this node.
      *****************************************************/
-    TreeNode getLeft() 
+    public TreeNode getLeft() 
     {
 	return _lt;
     }
@@ -49,7 +50,7 @@ public class TreeNode
     /*****************************************************
      * Returns the right subtree of this node.
      *****************************************************/
-    TreeNode getRight() 
+    public TreeNode getRight() 
     {
 	return _rt;
     }
@@ -58,7 +59,7 @@ public class TreeNode
     /*****************************************************
      * Returns the value stored in this tree node.
      *****************************************************/
-    int getValue() 
+    public int getValue() 
     {
 	return _cargo; 
     }
@@ -67,7 +68,7 @@ public class TreeNode
     /*****************************************************
      * Sets the value of the left subtree of this node.
      *****************************************************/
-    void setLeft( TreeNode theNewLeft ) 
+    public void setLeft( TreeNode theNewLeft ) 
     {
 	_lt= theNewLeft;
     }
@@ -76,7 +77,7 @@ public class TreeNode
     /*****************************************************
      * Sets the value of the right subtree of this node.
      *****************************************************/
-    void setRight( TreeNode theNewRight ) 
+    public void setRight( TreeNode theNewRight ) 
     {
 	_rt= theNewRight;
     }
@@ -85,7 +86,7 @@ public class TreeNode
     /*****************************************************
      * Sets the value of this tree node.
      *****************************************************/
-    void setValue( int theNewValue ) 
+    public void setValue( int theNewValue ) 
     {
 	_cargo= theNewValue;
     }

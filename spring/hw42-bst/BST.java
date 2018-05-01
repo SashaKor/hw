@@ -19,15 +19,17 @@ HW #42: Algorithm as Data Structure  ...or if it is answers you seek, start at t
 public class BST
 {
 
-  //instance variables / attributes of a BST:
-  TreeNode _root;
+    //instance variables / attributes of a BST:
+    TreeNode _root;
+    int size;
 
-  /*****************************************************
+    /*****************************************************
    * default constructor
    *****************************************************/
   BST( )
   {
-      TreeNode _root= new TreeNode(0);
+      this._root= new TreeNode(0,null,null);
+      size=0;
   }
 
 
@@ -38,12 +40,37 @@ public class BST
   public void insert( int newVal )
   {
     TreeNode newNode = new TreeNode( newVal );
-    /*** YOUR IMPLEMENTATION HERE ***/
+    if (size==0){
+	_root.setValue(newVal);
+	size++;
+    }
+    else{
+	insert(_root, newNode);
+	size++;}
+    
   }
+
   //recursive helper for insert(int)
   public void insert( TreeNode stRoot, TreeNode newNode )
-  {
-    /*** YOUR IMPLEMENTATION HERE ***/
+    {
+	if (stRoot.getValue() > newNode.getValue()){
+	    //place in the left subtree
+	    //recurse to bottom
+	    if (stRoot.getLeft() != null){
+		insert(stRoot.getLeft(), newNode);}
+	    stRoot.setLeft(newNode);
+
+	}
+
+      if (stRoot.getValue()< newNode.getValue()){
+	  //place in the right subtree
+	  //recurse to bottom
+	  if (stRoot.getRight() != null){
+	      insert(stRoot.getRight(), newNode);}
+	  stRoot.setRight(newNode);
+
+	  //exit case= its null;
+      }
   }//end insert()
 
 
@@ -55,44 +82,56 @@ public class BST
   // each traversal should simply print to standard out
   // the nodes visited, in order
 
-  //process root, recurse left, recurse right
-  public void preOrderTrav()
-  {
-    preOrderTrav( _root );
-  }
-  public void preOrderTrav( TreeNode currNode )
-  {
-    /*** YOUR IMPLEMENTATION HERE ***/
-  }
 
-  //recurse left, process root, recurse right
-  public void inOrderTrav()
-  {
-    /*** YOUR IMPLEMENTATION HERE ***/
-  }
-  public void inOrderTrav( TreeNode currNode )
-  {
-    /*** YOUR IMPLEMENTATION HERE ***/
-  }
+    //process root, recurse left, recurse right
+    public void preOrderTrav()
+    {
+	preOrderTrav( _root );
+    }
+    public void preOrderTrav( TreeNode currNode )
+    {
+	if (currNode != null){
+	    System.out.println(currNode.getValue());
+	    preOrderTrav(currNode.getLeft());
+	    preOrderTrav(currNode.getRight());}
+    }
 
-  //recurse left, recurse right, process root
-  public void postOrderTrav()
-  {
-    /*** YOUR IMPLEMENTATION HERE ***/
-  }
-  public void postOrderTrav( TreeNode currNode )
-  {
-    /*** YOUR IMPLEMENTATION HERE ***/
-  }
 
-  //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
+    //recurse left, process root, recurse right
+    public void inOrderTrav()
+    {
+	inOrderTrav(_root);
+    }
+    public void inOrderTrav( TreeNode currNode )
+    {
+	if (currNode != null){
+	    inOrderTrav(currNode.getLeft());
+	    System.out.println(currNode.getValue());
+	    inOrderTrav(currNode.getRight());}
+    }
+
+
+    //recurse left, recurse right, process root
+    public void postOrderTrav()
+    {
+      postOrderTrav(_root);
+    }
+    public void postOrderTrav( TreeNode currNode )
+    {
+	if (currNode != null){
+	    postOrderTrav(currNode.getLeft());
+	    postOrderTrav(currNode.getRight());
+	    System.out.println(currNode.getValue());}
+    }
+
+    //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
+   
 
       BST arbol = new BST();
 
@@ -118,7 +157,6 @@ public class BST
       arbol.postOrderTrav();
 
       System.out.println( "\n-----------------------------");
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }
 
 }//end class
