@@ -156,10 +156,27 @@ public class BST
      *****************************************************/
     public int height()
     {
-	return 1;
-      /*** YOUR IMPLEMENTATION HERE ***/
+	return height (_root);
     }
+    //helper method
+    public int height(TreeNode root){
+	if (root ==null){
+	    return 0;
+	}
 
+	if (root.getLeft() == null && root.getRight() == null){
+	    return 0; 
+	}
+
+	int lenRight= height(root.getLeft());
+	int lenLeft= height(root.getRight());
+
+	if (lenRight< lenLeft){
+	    return lenLeft+1;
+	}
+
+	return lenRight+1;
+    }
 
     /*****************************************************
      * int numLeaves()
@@ -167,10 +184,25 @@ public class BST
      *****************************************************/
     public int numLeaves()
     {
-	return 1;
-      /*** YOUR IMPLEMENTATION HERE ***/
+	return numLeaves(_root);
     }
 
+    public int numLeaves(TreeNode root){
+	if (root ==null){
+	    return 0;
+	}
+
+	if (root.getLeft() == null && root.getRight() == null){
+	    return 1; 
+	}
+
+	else {
+	    return numLeaves(root.getLeft())+numLeaves(root.getRight());
+	}
+	
+    }
+
+    // toString for ease
     public static String toString (TreeNode node){
 	String retVal ="";
 	if (node == null){
@@ -216,6 +248,17 @@ public class BST
     System.out.println(toString(arbol.search(6)));
     System.out.println(toString(arbol.search(4)));
 
-  }
+    System.out.println( "\n-----------------------------");
+    System.out.println( "height method testing");
+    System.out.println( "should return 2");
+    
+    System.out.println(arbol.height());
+
+    System.out.println( "\n-----------------------------");
+    System.out.println( "leaf  method testing");
+    System.out.println( "should return 3");
+    
+    System.out.println(arbol.numLeaves());
+    }
 
 }//end class
