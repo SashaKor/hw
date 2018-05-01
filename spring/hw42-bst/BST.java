@@ -1,3 +1,8 @@
+/*
+Aleksandra Koroza
+APCS2 PD2
+HW #42: Algorithm as Data Structure  ...or if it is answers you seek, start at the bottom of the page
+2018-04-30
 /*****************************************************
  * class BST - v1:partial
  * SKELETON
@@ -22,7 +27,7 @@ public class BST
    *****************************************************/
   BST( )
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
+      TreeNode _root= new TreeNode(0);
   }
 
 
