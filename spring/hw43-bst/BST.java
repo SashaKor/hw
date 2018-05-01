@@ -122,7 +122,30 @@ public class BST
      *****************************************************/
     TreeNode search( int target )
     {
-      /*** YOUR IMPLEMENTATION HERE ***/
+        return search(target, _root);
+    }
+
+    // search helper method
+    TreeNode search( int target, TreeNode currNode)
+    {
+	//check if found
+	if (target == currNode.getValue()){
+	    return currNode; 
+	}
+	
+        else if ( target < currNode.getValue() ) {
+	    //if no left child, you know you've reached end
+	    if ( currNode.getLeft() == null )
+	        return null;
+	    else //recurse down left subtree
+		return search( target, currNode.getLeft());
+	}
+	else { // new val >= curr, so look down right subtree
+	    if ( currNode.getRight() == null )
+	        return null;
+	    else //recurse down right subtree
+		return search( target, currNode.getRight());
+    }
     }
 
 
@@ -133,6 +156,7 @@ public class BST
      *****************************************************/
     public int height()
     {
+	return 1;
       /*** YOUR IMPLEMENTATION HERE ***/
     }
 
@@ -143,19 +167,28 @@ public class BST
      *****************************************************/
     public int numLeaves()
     {
+	return 1;
       /*** YOUR IMPLEMENTATION HERE ***/
     }
 
+    public static String toString (TreeNode node){
+	String retVal ="";
+	if (node == null){
+	    return "null";
+	}
+	else{
+	    return retVal+ node.getValue();
+		}
+    }
+    
 
+    //main method for testing
+    public static void main( String[] args )
+    {
+	BST arbol = new BST();
 
-
-  //main method for testing
-  public static void main( String[] args )
-  {
-    BST arbol = new BST();
-
-    //PROTIP: sketch state of tree after each insertion
-    //        ...BEFORE executing these.
+	//PROTIP: sketch state of tree after each insertion
+	//        ...BEFORE executing these.
     arbol.insert( 4 );
     arbol.insert( 2 );
     arbol.insert( 5 );
@@ -176,9 +209,13 @@ public class BST
     arbol.postOrderTrav();
 
     System.out.println( "\n-----------------------------");
-    /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
-      <<< YOUR NEW TEST CALLS HERE >>>
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    System.out.println( "search method testing");
+    System.out.println( "should return null 6 4");
+    
+    System.out.println(toString(arbol.search(39)));
+    System.out.println(toString(arbol.search(6)));
+    System.out.println(toString(arbol.search(4)));
+
   }
 
 }//end class
