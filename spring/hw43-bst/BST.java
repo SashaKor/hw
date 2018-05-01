@@ -1,3 +1,8 @@
+/*
+Aleksandra Koroza
+APCS2 pd2
+HW #43: BSTs is the Perfect Place for Shade that’s just how I feel
+2018-05-01
 /*****************************************************
  * class BST - v1:partial
  * Implementation of the BINARY SEARCH TREE abstract data type (ADT)
