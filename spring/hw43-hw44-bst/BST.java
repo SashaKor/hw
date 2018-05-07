@@ -222,63 +222,116 @@ public class BST
      * void remove(int)
      * removes specified node from tree
      *****************************************************/
-    public void remove(int node){
-	_root= remove(_root, node);
-    }
+     public void remove(int node){
+    	remove(_root, node);
+     }
 
-    public void remove(TreeNode root, int node){
-	//if tree empty
-	if (root==null){
-	    return root;
-	}
+     public void remove(TreeNode root, int node){
+	 //will be one ahead of the given root node
+	 TreeNode next= new TreeNode(0);
+	 boolean right = true;
 
-	//if not, search and delete
-	remove(search(node),node);
+	 //if what you are searching for is less than current node, its in the left subtree
+	 if (node < root.getValue()){
+	     next= root.getLeft();
+	     right= false;
+	 }
 
-	else {
-	    if (root.getLeft()==null){
-		return root.getRight();}
-		
-	    
-	    else if (root.getRight() == null){
-		return root.getLeft();}
-	    
+	 if (node >= root.getValue()){
+	     next= root.getRight();
+	 }
 
-	    //get smallest in right subtree if node with two children
+	 if(node == root.getValue()){
+	     next=root;
+	 }
 
-	    root.setValue(minValue(root.getRight()));
+	 //now see if this next value is what you want to remove
+	 if (next.getValue() == node){
 
-	    //delete the used value
+	     //if this value is a leaf
+	     if (next.getLeft()==null && next.getRight()==null && right){
+		 root.setRight(null);
+	     }
+	     else if (next.getLeft()==null && next.getRight()==null && !right){
+		 root.setLeft(null);
+	     }
 
-	    root.getRight().setValue(delete(root.getRight, root.getValue));}}
-				     
+	     //if this value is on a single branch
+	     else if (next.getLeft()==null && right){
+		 root.setRight(next.getRight());
+	     }
+	     else if (next.getRight()== null && right){
+		 root.setLeft(next.getRight());
+	     }
+	     else if (next.getLeft()==null && !right){
+		 root.setRight(next.getRight());
+	     }
+	     else if (next.getRight()== null && !right){
+		 root.setLeft(next.getRight());
+	     }
+
+	     //if this value is on a double branch, use minval helper function
+	     // call remove again
+	     else{
+		 //set value of this junction to minimum of right branch
+		 int min = minValue(next);
+		 remove(next, min);
+		 next.setValue(min);}}
+
+	 
+	 else {
+	     if (node < root.getValue()){
+		 remove(root.getLeft(),node);
+	     }
+
+	     if (node > root.getValue()){
+		 remove(root.getRight(),node);
+	     }
+	 }
+     }
 			  
 			  
-
-    public int minValue(Node root)
+    //find minimum value in right subtree
+    public static int minValue(TreeNode root)
     {
-        int min = root.getValue();
-        while (root.getLeft() != null)
+	//direct into right subtree and save that value
+        int min = root.getRight().getValue();
+	root= root.getRight();
+
+	//get to the bottom of the leftmost subtree of the right
+	while (root.getLeft() != null)
         {
             min = root.getLeft().getValue();
             root = root.getLeft();
         }
-        return min;
+        return min; //<--- min value in right subtree, bigger than everything on the left so it can replace root and still maintain BST properties
     }
 
     //main method for testing
     public static void main( String[] args )
     {
 	BST arbol = new BST();
+	BST leaf = new BST();
 
 	//PROTIP: sketch state of tree after each insertion
 	//        ...BEFORE executing these.
     arbol.insert( 4 );
     arbol.insert( 2 );
-    arbol.insert( 5 );
     arbol.insert( 6 );
+    arbol.insert( 5 );
     arbol.insert( 1 );
     arbol.insert( 3 );
+    arbol.insert( 7 );
+
+    leaf.insert(0);
+    leaf.insert(-1);
+    leaf.insert(1);
+    leaf.insert(4);
+    leaf.insert(-3);
+    leaf.insert(3);
+    leaf.insert(5);
+    leaf.insert(-2);
+    leaf.insert(-5);
 
     System.out.println( "\n-----------------------------");
     System.out.println( "pre-order traversal:" );
@@ -316,8 +369,13 @@ public class BST
     System.out.println( "remove  method testing");
     System.out.println( "print out subsequent inorder");
 
-    arbol.inOrderTrav();
-    arbol.remove(1);
-    arbol.inOrderTrav();
+    leaf.inOrderTrav();
+    leaf.remove(0);
+    System.out.println("~~~~~~~");
+    leaf.inOrderTrav();
+
+    System.out.println( "\n-----------------------------");
+    System.out.println( "testing min val function");
+    System.out.println( minValue(leaf.search(1)));
 
     }}//end class
